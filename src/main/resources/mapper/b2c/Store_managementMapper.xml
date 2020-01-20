@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.b2c.mapper.Store_managementMapper">
+
+    <sql id="store">
+    s.id,
+    s.shopname,
+    s.addshop,
+    s.createtime
+    </sql>
+
+    <select id="search" resultType="com.yjw.shop.b2c.entity.Store_management">
+        select
+        <include refid="store"/>
+        from
+        store_management as s
+        <where>
+            <if test="shopname != null and shopname !=''">
+                or s.shopname like CONCAT ('%',#{shopname},'%')
+            </if>
+            <if test="addshop != null and addshop !=''">
+                or s.addshop like CONCAT ('%',#{addshop},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

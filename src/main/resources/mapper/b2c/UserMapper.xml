@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.b2c.mapper.UserMapper">
+
+    <sql id="UserColums">
+    u.id,
+    u.username,
+    u.password,
+    u.createtime
+    </sql>
+
+
+    <insert id="insert">
+        INSERT INTO `user` (
+          `username`,
+    `password`,
+    `createtime`
+        )
+        values
+        (
+          #{username},
+          #{password},
+          #{createtime}
+        )
+    </insert>
+
+
+    <select id="getByUsername" resultType="com.yjw.shop.b2c.entity.User">
+    select
+    <include refid="UserColums"/>
+    FROM
+    user as u
+    where
+    u.username = #{username}
+    </select>
+
+
+</mapper>

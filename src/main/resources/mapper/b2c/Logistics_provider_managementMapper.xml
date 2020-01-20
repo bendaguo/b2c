@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.b2c.mapper.Logistics_provider_managementMapper">
+
+    <sql id="logistics">
+        a.id，
+        a.cname,
+        a.ename,
+        a.createtime
+    </sql>
+
+
+    <select id="search" resultType="com.yjw.shop.b2c.entity.Logistics_provider_management">
+        select
+        <include refid="logistics"/>
+        from
+        Logistics_provider_management as a
+        <where>
+            <if test="cname != null and cname !=''">
+                or a.cname like CONCAT ('%',#{cname},'%')
+            </if>
+            <if test="ename != null and ename !=''">
+                or a.ename like CONCAT ('%',#{ename},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
