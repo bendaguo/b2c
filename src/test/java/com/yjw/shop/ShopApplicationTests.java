@@ -27,11 +27,10 @@ class ShopApplicationTests {
     @Test
     public void testInsert(){
         User user = new User();
-        user.setUsername("ddd");
-        user.setPassword(DigestUtils.md5DigestAsHex("9999".getBytes()));
+        user.setUsername("杨健文");
+        user.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
         user.setCreatetime(new Date());
-//        userService.insert(user);
-        System.out.println(user);
+        userService.save(user);
     }
 
     @Test

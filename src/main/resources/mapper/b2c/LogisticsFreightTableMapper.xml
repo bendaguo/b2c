@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.ucenter.mapper.LogisticsFreightTableMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yjw.shop.b2c.entity.LogisticsFreightTable">
+        <result column="lynumber" property="lynumber" />
+        <result column="orderweight" property="orderweight" />
+        <result column="lcosts" property="lcosts" />
+        <result column="paymentmoney" property="paymentmoney" />
+        <result column="paymentmethod" property="paymentmethod" />
+        <result column="currency" property="currency" />
+        <result column="status" property="status" />
+        <result column="expenseitem" property="expenseitem" />
+        <result column="lservice" property="lservice" />
+        <result column="paytime" property="paytime" />
+        <result column="ordercreatetime" property="ordercreatetime" />
+        <result column="importtime" property="importtime" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        lynumber, orderweight, lcosts, paymentmoney, paymentmethod, currency, status, expenseitem, lservice, paytime, ordercreatetime, importtime, remarks
+    </sql>
+</mapper>

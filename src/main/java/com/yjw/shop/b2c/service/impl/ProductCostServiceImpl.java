@@ -1,0 +1,21 @@
+package com.yjw.shop.b2c.service.impl;
+
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yjw.shop.b2c.entity.ProductCost;
+import com.yjw.shop.b2c.mapper.ProductCostMapper;
+import com.yjw.shop.b2c.service.IProductCostService;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author yjw
+ * @since 2020-06-28
+ */
+@Service
+public class ProductCostServiceImpl extends ServiceImpl<ProductCostMapper, ProductCost> implements IProductCostService {
+
+}

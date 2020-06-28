@@ -8,6 +8,7 @@ import com.yjw.shop.b2c.entity.Store_management;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ import java.util.List;
  * @since 2020-01-10
  */
 @Repository
+@ResponseBody
 public interface Store_managementMapper extends BaseMapper<Store_management> {
 
 

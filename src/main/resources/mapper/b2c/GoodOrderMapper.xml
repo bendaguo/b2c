@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.ucenter.mapper.GoodOrderMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yjw.shop.b2c.entity.GoodOrder">
+        <id column="orderid" property="orderid" />
+        <result column="shipmentid" property="shipmentid" />
+        <result column="productmoney" property="productmoney" />
+        <result column="totalmoney" property="totalmoney" />
+        <result column="shoppromotions" property="shoppromotions" />
+        <result column="currency" property="currency" />
+        <result column="erate" property="erate" />
+        <result column="status" property="status" />
+        <result column="dcountry" property="dcountry" />
+        <result column="buyname" property="buyname" />
+        <result column="orderstate" property="orderstate" />
+        <result column="ordertime" property="ordertime" />
+        <result column="paytime" property="paytime" />
+        <result column="shipmethod" property="shipmethod" />
+        <result column="shipnumber" property="shipnumber" />
+        <result column="shiptime" property="shiptime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        orderid, shipmentid, productmoney, totalmoney, shoppromotions, currency, erate, status, dcountry, buyname, orderstate, ordertime, paytime, shipmethod, shipnumber, shiptime
+    </sql>
+</mapper>

@@ -7,6 +7,8 @@ import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
 import com.yjw.shop.b2c.config.ExcelUtiles;
 import com.yjw.shop.b2c.entity.Store_management;
 import com.yjw.shop.b2c.service.IStore_managementService;
+import com.yjw.shop.b2c.utils.JxlsUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +53,33 @@ public class Store_managementController {
         return "store";
     }
 
+    @GetMapping("download")
+    public void download(HttpServletRequest request, HttpServletResponse response) {
+        List<Store_management> list = store_managementService.list();
+        Map<String, Object> model = new HashMap<String, Object>();
+        OutputStream os = null;
+
+        try{
+            //调用下载方法
+            String filename = "店铺管理.xls";
+            response.reset();
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(filename, "UTF-8"));
+            response.setContentType("application/octet-stream; charset=UTF-8");
+            response.setContentType("text/html; charset=UTF-8");
+            os = response.getOutputStream();
+            HSSFWorkbook wb = new HSSFWorkbook();
+            model.put("list",list);
+            JxlsUtils.exportExcel("店铺管理.xls",os,model);
+            wb.write(os);
+            os.flush();
+            os.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     @GetMapping("/b2c/save")
     public String save_store() {
         return "store_modifi";
@@ -56,9 +88,11 @@ public class Store_managementController {
     @PostMapping("search")
     public String search(String keyword, Model model) {
         List<Store_management> list = store_managementService.search(keyword);
-        model.addAttribute("list", list);
+        model.addAttribute("stores", list);
         return "store";
     }
+
+
 
 
     @GetMapping("/b2c/delete")
@@ -134,7 +168,7 @@ public class Store_managementController {
     }
 
     @PostMapping("upload")
-    public void upload(@RequestParam("file")MultipartFile file){
+    public String upload(@RequestParam("file")MultipartFile file){
         ImportParams params = new ImportParams();
         params.setHeadRows(1);
         params.setTitleRows(1);
@@ -143,9 +177,12 @@ public class Store_managementController {
             ExcelImportResult<Store_management> result = ExcelImportUtil.importExcelMore(file.getInputStream(), Store_management.class, params);
             List<Store_management> list = result.getList();
             store_managementService.saveBatch(list);
+            System.out.println(list);
+            return "store";
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return "store";
     }
 }
 

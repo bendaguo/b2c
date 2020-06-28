@@ -40,4 +40,7 @@ spring:
 
   logging:
     level:
-      com.yjw.shop.b2c.mapper: debug
+      com.yjw.shop.b2c.mapper: info
+      com.ltsolution.framework.bs.system.mapper: debug
+
+

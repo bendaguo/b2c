@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.ucenter.mapper.ProductCostMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yjw.shop.b2c.entity.ProductCost">
+        <result column="ordernumber" property="ordernumber" />
+        <result column="shipmentid" property="shipmentid" />
+        <result column="ordertotalmoney" property="ordertotalmoney" />
+        <result column="costtotalmoney" property="costtotalmoney" />
+        <result column="logisticscosts" property="logisticscosts" />
+        <result column="refundmoney" property="refundmoney" />
+        <result column="orderprofit" property="orderprofit" />
+        <result column="dcountry" property="dcountry" />
+        <result column="orderweight" property="orderweight" />
+        <result column="lcosts" property="lcosts" />
+        <result column="Settlementtime" property="Settlementtime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ordernumber, shipmentid, ordertotalmoney, costtotalmoney, logisticscosts, refundmoney, orderprofit, dcountry, orderweight, lcosts, Settlementtime
+    </sql>
+</mapper>

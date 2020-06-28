@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjw.shop.ucenter.mapper.SellingGoodMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yjw.shop.b2c.entity.SellingGood">
+        <result column="commoditySKU" property="commoditySKU" />
+        <result column="pprice" property="pprice" />
+        <result column="weightKG" property="weightKG" />
+        <result column="weightG" property="weightG" />
+        <result column="flyprice" property="flyprice" />
+        <result column="packingprice" property="packingprice" />
+        <result column="exchangerate" property="exchangerate" />
+        <result column="commissionrate" property="commissionrate" />
+        <result column="gprofit" property="gprofit" />
+        <result column="sellingprice" property="sellingprice" />
+        <result column="drate" property="drate" />
+        <result column="pdrate" property="pdrate" />
+        <result column="discount1" property="discount1" />
+        <result column="discount1saleprice" property="discount1saleprice" />
+        <result column="discount2" property="discount2" />
+        <result column="discount2saleprice" property="discount2saleprice" />
+        <result column="discount3" property="discount3" />
+        <result column="discount3saleprice" property="discount3saleprice" />
+        <result column="shopname" property="shopname" />
+        <result column="Remarks" property="Remarks" />
+        <result column="importtime" property="importtime" />
+        <result column="supplierlink" property="supplierlink" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        commoditySKU, pprice, weightKG, weightG, flyprice, packingprice, exchangerate, commissionrate, gprofit, sellingprice, drate, pdrate, discount1, discount1saleprice, discount2, discount2saleprice, discount3, discount3saleprice, shopname, Remarks, importtime, supplierlink
+    </sql>
+</mapper>
